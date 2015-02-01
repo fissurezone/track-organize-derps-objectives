@@ -11,6 +11,8 @@
         .hero-unit.text-center
           %h1
             Track, Organize Derp's Objectives
+          %br
           %p
             A simple ToDo application inspired by #{ link_to 'arubystory.com', 'http://www.arubystory.com'}
-    = yield
+          = link_to 'New ToDo', new_task_path, class: 'btn btn-primary', remote: true
+        = yield
