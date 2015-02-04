@@ -1,11 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  details: MyText
-  status: MyString
+create:
+  title: create
+  details: CreateText
+  status:
 
-two:
-  title: MyString
-  details: MyText
-  status: MyString
+new:
+  title: new
+  details: NewText
+  status: New
+
+done:
+  title: done
+  details: DoneText
+  status: Done
+
+redo:
+  title: redo
+  details: RedoText
+  status: Redo
