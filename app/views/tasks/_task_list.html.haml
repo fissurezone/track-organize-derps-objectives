@@ -1,17 +1,26 @@
-.contianer
-  - if tasks.empty?
-    %span.text-warning No tasks!
-  - else
-    %table.table.table-hover.table-bordered
-      %thead
+- if tasks.empty?
+  %span.text-warning No tasks!
+- else
+  %table.table.table-hover.table-bordered
+    %thead
+      %tr
+        %th Title
+        %th Details
+        %th Status
+        %th Actions
+    %tbody
+      - tasks.each do |task|
         %tr
-          %th Title
-          %th Created at
-          %th Status
-      %tbody
-        - tasks.each do |task|
-          %tr
-            %td
-              %strong= task.title
-            %td.text-info= task.created_at
-            %td.text-info= task.status
+          %td
+            %strong= task.title
+          %td.text-info= task.details
+          %td.text-info= task.status
+          %td
+            - if task.status == "Done"
+              = link_to task_path(task, {:status => "Redo"}), :method => :patch, :title => "Redo", :remote => true do
+                %i.icon-repeat
+            - else
+              = link_to task_path(task, {:status => "Done"}), :method => :patch, :title => "Done", :remote => true do
+                %i.icon-ok-circle
+            = link_to task_path(task), :method => :delete, data: {confirm: "Are you sure you want to delete task #{task.title}?"}, :title => "Delete", :remote => true do
+              %i.icon-trash

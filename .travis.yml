@@ -1,0 +1,10 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.1.5p273
+
+env:
+  - DB=sqlite
+
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate test

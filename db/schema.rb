@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20150201143642) do
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
     t.text     "details"
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "status",     default: "New"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end
